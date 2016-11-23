@@ -27,7 +27,7 @@ function isTwoCards() {
 	if (cardsInPlay.length === 2) {
     isMatch(cardsInPlay);
     cardsInPlay= [];
-    card.innerHTML = ""
+    this.innerHTML = ""
 	}
 }
 
