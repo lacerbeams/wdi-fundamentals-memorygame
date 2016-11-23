@@ -17,6 +17,11 @@ from Unit 1 - 5 below  */
 	margin: 8%;
 }
 
+img {
+	height: 200px;
+	width: 150px;
+}
+
 nav a{
 	color: #ffffff;
 	background: #ffbf00;

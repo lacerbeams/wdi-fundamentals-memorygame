@@ -1,20 +1,44 @@
 console.log("JS file is connected to HTML! Woo!")
-var card0ne = "queen";
-var cardTwo = "queen";
-var cardThree = "king";
-var cardFour = "king";
-/*
-if (cardTwo === cardFour);
-window.alert('You found a match!');
-if (cardTwo !== cardFour);
-window.alert('Sorry, try again.');
-*/
+var cards = ['queen', 'queen', 'king', 'king'];
+var cardsInPlay= [];
+var board = document.getElementById('game-board');
 
-var gameboard = document.getElementById('game-board');
-function createCards(gameboard){
-for (var i = 0; i < 4; i++){
-var newDiv = document.createElement('div');
-newDiv.className = "card";
-gameboard.appendChild(newDiv);
-}}
-createCards(gameboard);
+function createBoard() {
+for (var i = 0; i < cards.length; i++){
+var cardElement = document.createElement('div');
+cardElement.className = 'card';
+cardElement.setAttribute('data-card', cards[i]);
+cardElement.addEventListener('click', isTwoCards);
+board.appendChild(cardElement);
+
+
+	}
+}
+		
+
+function isTwoCards() {
+	cardsInPlay.push(this.getAttribute('data-card'));
+	console.log(this.getAttribute('data-card'));
+	if (this.getAttribute('data-card') === 'king') {
+		this.innerHTML = "<img src='file:///Users/laceymadison/fundamentals/wdi-fundamentals-memorygame/spades-884197_1280.png'>"; 
+	} else {
+		this.innerHTML = "<img src='file:///Users/laceymadison/fundamentals/wdi-fundamentals-memorygame/clubs-884198_1280.png'>"; 
+	}
+	if (cardsInPlay.length === 2) {
+    isMatch(cardsInPlay);
+    cardsInPlay= [];
+    card.innerHTML = ""
+	}
+}
+
+function isMatch(cards) {
+  if (cards[0] === cards[1]) {
+    alert("You found a match!");
+  } else {
+    alert("Sorry, try again.");
+
+  }
+}
+
+
+createBoard();
